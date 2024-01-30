@@ -1,47 +1,165 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	<title>  Basit Web Sitesi 1.0</title> 
-	</head>
-	<body>
-		<div align="center">
-			<h1>Welcome to Yıldırım Technologies</h1>
-		</div>
-	 
-	<h2>Hizmetlerimiz:</h2>
-	<p> <strong>1.Uygulama Tasarımı <br> </strong> <em>2.Web Tasarımı <br> </em>
-	3.Siber Güvenlik</p>	
-	<h2><strong>Bizden Hizmet Alın</strong>:</h2>
-	<br>
-	<form>
-		<div align="center">
-			<label>Kullanıcı Adınız:</label>
-			<input type="KUllanıcı Adı" placeholder="Kullanıcı Adınız...">			
-		</div>
-		<br>
-		<div align="center">
-			<label>Şifreniz</label>			
-			<input type="password" name="Şifreniz" placeholder="Şifrenizi Giriniz..."> 
-		</div>
-		<div align="center">
-		<button>Kaydol </button>
-		</div>
-		<div align="center">
-		</form>
-	<br>
-	<a target= 'blank'href="galeri.html">GALERİ</a>
-	<br>
-	<a target= 'blank' href="İletişim.html" >İLETİŞİM</a>
-		<p><a href="Doğukan Canlı Makale Sayfası.html">Makale Sayfasına Git</a></p>
+<html lang="en">
 
-	
-	
-		</div>
-		<footer align="center">
-			<p>Developed By Bahadır Yıldırım</p>
-		</footer>
-		
-		
-	
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yıldırım Technologies</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, rgba(52, 152, 219, 1), rgba(39, 174, 96, 1));
+            color: #ecf0f1;
+            text-align: center;
+            transition: background 0.3s, color 0.3s; /* Arka plan ve metin rengi için geçiş efekti eklendi */
+        }
+
+        div {
+            text-align: center;
+            margin-top: 20px;
+            background: rgba(44, 62, 80, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #3498db; /* Başlık rengi her zaman bu mavi renkte kalacak */
+            font-size: 48px;
+            margin-bottom: 10px;
+            animation: changeText 3s infinite;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #2ecc71;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        form {
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ecf0f1;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        @keyframes changeText {
+            0%, 100% {
+                content: "Yıldırım Technologies";
+            }
+            50% {
+                content: "Geleceği Şekillendiriyoruz";
+            }
+        }
+    </style>
+</head>
+
+<body onmousemove="changeBackgroundColor(event)">
+    <div>
+        <h1 id="myHeader"></h1>
+    </div>
+
+    <h2>İleri Teknoloji ve Yenilikçi Çözümler</h2>
+    <p><strong>1. Uygulama Tasarımı <br></strong><em>2. Web Tasarımı <br></em> 3. Siber Güvenlik</p>
+
+    <h2><strong>Bizden Hizmet Alın</strong>:</h2>
+    <form action="isle.php" method="post">
+        <label>Kullanıcı Adınız:</label>
+        <input type="text" name="kullanici_adi" placeholder="Kullanıcı Adınız...">
+
+        <label>Şifreniz:</label>
+        <input type="password" name="sifre" placeholder="Şifrenizi Giriniz...">
+
+        <button type="submit">Kaydol</button>
+    </form>
+
+    <br>
+    <a class="link" href="galeri.html" target="_blank">GALERİ</a>
+    <br>
+    <a class="link" href="İletişim.html" target="_blank">İLETİŞİM</a>
+    <p><a class="link" href="DoğukanMakale.html">Makale Sayfasına Git</a></p>
+
+    <footer>
+        <p>Developed By Bahadır Yıldırım</p>
+    </footer>
+
+    <script>
+        function changeBackgroundColor(event) {
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+
+            var red = Math.round((mouseX / window.innerWidth) * 255);
+            var green = Math.round((mouseY / window.innerHeight) * 255);
+
+            document.body.style.background = "rgb(" + red + "," + green + ",100)";
+
+            // Metin ve bağlantı renklerini ayarla
+            var contrastColor = getContrastColor(red, green);
+            document.body.style.color = contrastColor;
+
+            var links = document.getElementsByClassName("link");
+            for (var i = 0; i < links.length; i++) {
+                links[i].style.color = contrastColor;
+            }
+        }
+
+        function getContrastColor(r, g) {
+            var brightness = (r * 299 + g * 587 + 114) / 1000;
+            return brightness > 128 ? 'black' : 'white';
+        }
+
+        document.getElementById("myHeader").textContent = "Yıldırım Technologies";
+    </script>
+</body>
 
 </html>
